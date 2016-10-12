@@ -5,6 +5,34 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<script type="text/javascript">
+        function startTime()
+        {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+         
+        // add a zero in front of numbers<10
+        m=checkTime(m);
+        s=checkTime(s);
+        if(h<12)
+        document.getElementById('clock').innerHTML=h+":"+m+":"+s + " AM";
+        else
+        document.getElementById('clock').innerHTML=h+":"+m+":"+s + " PM";
+ 
+        t=setTimeout('startTime()',500);
+        }
+ 
+        function checkTime(i)
+        {
+        if (i<10)
+          {
+          i="0" + i;
+          }
+        return i;
+        }
+    </script>
 </head>
 
 <%= content_tag :body, class: controller.controller_name do %>
@@ -12,8 +40,11 @@
   <%= image_tag("logo.png") %>
   <%= @page_title || "Pragmatic Bookshelf" %>
 </div>
+
   <div id="columns">
   <div id="side">
+	<div id="clock"></div>
+    <script type="text/javascript">startTime();</script>
     <ul>
 	<li><a href="http://www....">Home</a></li>
 	<li><a href="http://www..../faq">Questions</a></li>
