@@ -43,21 +43,26 @@
   <%= @page_title || "Pragmatic Bookshelf" %>
 </div>
 
-  <div id="columns">
-  <div id="side">
-	<div id="clock"></div>
-    <script type="text/javascript">startTime();</script>
-    <ul>
-	<li><a href="http://www....">Home</a></li>
-	<li><a href="http://www..../faq">Questions</a></li>
-	<li><a href="http://www..../news">News</a></li>
-	<li><a href="http://www..../contact">Contact</a></li>
-    </ul>
-  </div>
-  <div id="main">
-    <%= yield %>
-  </div>
-</div>
+<div id="columns">
+	<div id="side">
+		<div id="clock"></div>
+		<script type="text/javascript">startTime();</script>
+		<ul>
+			<li><a href="http://www....">Home</a></li>
+			<li><a href="http://www..../faq">Questions</a></li>
+			<li><a href="http://www..../news">News</a></li>
+			<li><a href="http://www..../contact">Contact</a></li>
+		</ul>
+		<% if @cart %>
+			<div id="cart">
+				<%= render @cart %>
+			</div>
+		<% end %>
+		</div>
+		<div id="main">
+			<%= yield %>
+		</div>
+	</div>
 <% end %>
 
 </html>
