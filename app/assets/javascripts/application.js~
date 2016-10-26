@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/effect-blind
 //= require turbolinks
 //= require_tree .
-var today = new Date();
-document.getElementById('time').innerHTML=today;
