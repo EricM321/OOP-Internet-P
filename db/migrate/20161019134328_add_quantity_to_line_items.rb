@@ -1,5 +1,5 @@
 class AddQuantityToLineItems < ActiveRecord::Migration
   def change
-    add_column :line_items, :quantity, :integer, default: 1
+    add_reference :line_item, :order, index: true
   end
 end
