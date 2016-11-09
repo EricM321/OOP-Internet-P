@@ -8,6 +8,6 @@ one:
 
 two:
   name: MyString
-  address: MyText2
+  address: MyText
   email: MyString
   pay_type: MyString
