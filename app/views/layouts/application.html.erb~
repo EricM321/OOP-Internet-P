@@ -53,9 +53,19 @@
 			<li><a href="http://www..../news">News</a></li>
 			<li><a href="http://www..../contact">Contact</a></li>
 		</ul>
+<% if session[:user_id] %>
+  <br />
+  <%= link_to 'Orders',   orders_path   %><br />
+  <%= link_to 'Products', products_path %><br />
+  <%= link_to 'Users',    users_path    %><br />
+  <br />
+  <%= button_to 'Logout', logout_path, :method => :delete   %>
+<% end %>
 		<% if @cart %>
 			<div id="cart">
-				<%= render @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+  					<%= render @cart %>
+				<% end %>
 			</div>
 		<% end %>
 		</div>
